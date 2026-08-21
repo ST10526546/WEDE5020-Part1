@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Immaculate Day Care - About Us
+    </title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #222;
+            line-height: 1.6;
+        }
+
+
+        /* ================================
+           HEADER
+           ================================ */
+
+        header {
+            border-bottom: 1px solid #ddd;
+
+            padding: 15px 5%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+            width: 90px;
+            height: 45px;
+
+            border: 1px solid #999;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            line-height: 1.1;
+        }
+
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #222;
+            font-size: 14px;
+        }
+
+
+        /* ================================
+           PAGE TITLE
+           ================================ */
+
+        .page-title {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+
+        /* ================================
+           ABOUT SECTION
+           ================================ */
+
+        .intro {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 10px 30px 30px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+
+            align-items: center;
+        }
+
+
+        .about-image {
+            width: 100%;
+            height: 300px;
+
+            overflow: hidden;
+
+            border: 1px solid #ccc;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        /* ================================
+           MISSION / VISION
+           ================================ */
+
+        .box {
+
+            background: #f3f3f3;
+
+            border: 1px solid #ddd;
+
+            max-width: 900px;
+
+            margin: 20px auto;
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+        .box h2 {
+            margin-bottom: 10px;
+        }
+
+
+        /* ================================
+           FOOTER
+           ================================ */
+
+        footer {
+
+            background: #f5f5f5;
+
+            padding: 30px 8% 15px;
+
+            margin-top: 40px;
+        }
+
+        .footer-content {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        footer a {
+            color: #333;
+            text-decoration: none;
+
+            display: block;
+
+            margin: 5px 0;
+        }
+
+        .copyright {
+
+            text-align: center;
+
+            border-top: 1px solid #ddd;
+
+            margin-top: 20px;
+
+            padding-top: 15px;
+
+            font-size: 12px;
+        }
+
+
+        /* ================================
+           MOBILE
+           ================================ */
+
+        @media(max-width:700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            IMMACULATE<br>
+            DAY CARE
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html">About Us</a>
+
+            <a href="programmes.html">Programmes</a>
+
+            <a href="gallery.html">Gallery</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- PAGE TITLE -->
+
+    <section class="page-title">
+
+        <h1>
+            About Us
+        </h1>
+
+    </section>
+
+
+    <!-- ABOUT INFORMATION -->
+
+    <section class="intro">
+
+
+        <!--
+            Download the recommended daycare photo and save it as:
+
+            images/daycare-main.jpg
+        -->
+
+        <div class="about-image">
+
+            <img
+                src="images/daycare-main.jpg"
+                alt="Children learning at Immaculate Day Care"
+            >
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Immaculate Day Care is a community-based
+                non-profit organisation that provides care,
+                early childhood education and support for
+                young children in a safe and loving environment.
+            </p>
+
+            <br>
+
+            <p>
+                Our team is committed to creating an environment
+                where every child feels welcome, supported and
+                encouraged to reach their full potential.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MISSION -->
+
+    <div class="box">
+
+        <h2>
+            Our Mission
+        </h2>
+
+        <p>
+            To provide young children with quality care,
+            early education and support in a safe and
+            nurturing environment.
+        </p>
+
+    </div>
+
+
+    <!-- VISION -->
+
+    <div class="box">
+
+        <h2>
+            Our Vision
+        </h2>
+
+        <p>
+            To create a positive impact in our community
+            by helping children grow, learn and reach
+            their full potential.
+        </p>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <div class="logo">
+                    IMMACULATE<br>
+                    DAY CARE
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programmes.html">Programmes</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Contact Info
+                </h3>
+
+                <p>
+                    Phone: 012 345 6789
+                </p>
+
+                <p>
+                    Email: info@immaculatedaycare.org
+                </p>
+
+                <p>
+                    Address: 123 Community St, Your Town
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Immaculate Day Care.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

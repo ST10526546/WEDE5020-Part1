@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Immaculate Day Care - Gallery
+    </title>
+
+
+    <style>
+
+        /* ================================
+           GENERAL
+           ================================ */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #222;
+        }
+
+
+        /* ================================
+           HEADER
+           ================================ */
+
+        header {
+
+            border-bottom: 1px solid #ddd;
+
+            padding: 15px 5%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+
+            width: 90px;
+            height: 45px;
+
+            border: 1px solid #999;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            line-height: 1.1;
+        }
+
+
+        nav {
+
+            display: flex;
+
+            gap: 25px;
+        }
+
+        nav a {
+
+            text-decoration: none;
+
+            color: #222;
+
+            font-size: 14px;
+        }
+
+
+        /* ================================
+           PAGE TITLE
+           ================================ */
+
+        .title {
+
+            text-align: center;
+
+            padding: 30px 20px;
+        }
+
+        .title p {
+
+            color: #666;
+        }
+
+
+        /* ================================
+           GALLERY GRID
+           ================================ */
+
+        .gallery {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 0 20px 40px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+
+        /* Individual photo */
+
+        .gallery-item {
+
+            height: 210px;
+
+            background: #eee;
+
+            border: 1px solid #ccc;
+
+            overflow: hidden;
+        }
+
+
+        /* Gallery image */
+
+        .gallery-item img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.3s;
+        }
+
+
+        /* Zoom image slightly on hover */
+
+        .gallery-item img:hover {
+
+            transform: scale(1.05);
+        }
+
+
+        /* ================================
+           FOOTER
+           ================================ */
+
+        footer {
+
+            background: #f5f5f5;
+
+            padding: 30px 8% 15px;
+        }
+
+        .footer-content {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        footer a {
+
+            color: #333;
+
+            text-decoration: none;
+
+            display: block;
+
+            margin: 5px 0;
+        }
+
+        .copyright {
+
+            text-align: center;
+
+            border-top: 1px solid #ddd;
+
+            margin-top: 20px;
+
+            padding-top: 15px;
+
+            font-size: 12px;
+        }
+
+
+        /* ================================
+           TABLET
+           ================================ */
+
+        @media(max-width:700px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+            }
+
+            .gallery {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .footer-content {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        /* ================================
+           SMALL PHONE
+           ================================ */
+
+        @media(max-width:450px) {
+
+            .gallery {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            IMMACULATE<br>
+            DAY CARE
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html">About Us</a>
+
+            <a href="programmes.html">Programmes</a>
+
+            <a href="gallery.html">Gallery</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- TITLE -->
+
+    <section class="title">
+
+        <h1>
+            Gallery
+        </h1>
+
+        <p>
+            Moments from our day care centre.
+        </p>
+
+    </section>
+
+
+    <!-- ================================
+         PHOTO GALLERY
+         ================================ -->
+
+    <section class="gallery">
+
+
+        <!-- Gallery Photo 1 -->
+
+        <div class="gallery-item">
+
+            <!-- Save downloaded photo as gallery1.jpg -->
+            <img
+                src="images/gallery1.jpg"
+                alt="Children playing at daycare"
+            >
+
+        </div>
+
+
+        <!-- Gallery Photo 2 -->
+
+        <div class="gallery-item">
+
+            <!-- Save downloaded photo as gallery2.jpg -->
+            <img
+                src="images/gallery2.jpg"
+                alt="Teacher reading to children"
+            >
+
+        </div>
+
+
+        <!-- Gallery Photo 3 -->
+
+        <div class="gallery-item">
+
+            <!-- Save downloaded photo as gallery3.jpg -->
+            <img
+                src="images/gallery3.jpg"
+                alt="Children drawing in class"
+            >
+
+        </div>
+
+
+        <!-- Gallery Photo 4 -->
+
+        <div class="gallery-item">
+
+            <!-- Save downloaded photo as gallery4.jpg -->
+            <img
+                src="images/gallery4.jpg"
+                alt="Children playing with educational toys"
+            >
+
+        </div>
+
+
+        <!-- Gallery Photo 5 -->
+
+        <div class="gallery-item">
+
+            <!-- Save downloaded photo as gallery5.jpg -->
+            <img
+                src="images/gallery5.jpg"
+                alt="Children learning in a classroom"
+            >
+
+        </div>
+
+
+        <!-- Gallery Photo 6 -->
+
+        <div class="gallery-item">
+
+            <!-- Save downloaded photo as gallery6.jpg -->
+            <img
+                src="images/gallery6.jpg"
+                alt="Children playing indoors"
+            >
+
+        </div>
+
+
+        <!-- Gallery Photo 7 -->
+
+        <div class="gallery-item">
+
+            <!-- Save downloaded photo as gallery7.jpg -->
+            <img
+                src="images/gallery7.jpg"
+                alt="Children enjoying lunch"
+            >
+
+        </div>
+
+
+        <!-- Gallery Photo 8 -->
+
+        <div class="gallery-item">
+
+            <!-- Save downloaded photo as gallery8.jpg -->
+            <img
+                src="images/gallery8.jpg"
+                alt="Teacher with children in classroom"
+            >
+
+        </div>
+
+
+        <!-- Gallery Photo 9 -->
+
+        <div class="gallery-item">
+
+            <!-- Save downloaded photo as gallery9.jpg -->
+            <img
+                src="images/gallery9.jpg"
+                alt="Children playing at kindergarten"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div>
+
+                <div class="logo">
+                    IMMACULATE<br>
+                    DAY CARE
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">Home</a>
+
+                <a href="about.html">About Us</a>
+
+                <a href="programmes.html">Programmes</a>
+
+                <a href="gallery.html">Gallery</a>
+
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Contact Info
+                </h3>
+
+                <p>
+                    Phone: 012 345 6789
+                </p>
+
+                <p>
+                    Email: info@immaculatedaycare.org
+                </p>
+
+                <p>
+                    Address: 123 Community St, Your Town
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Immaculate Day Care.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

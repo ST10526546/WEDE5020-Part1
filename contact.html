@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Immaculate Day Care - Contact Us
+    </title>
+
+
+    <style>
+
+        /* ================================
+           GENERAL
+           ================================ */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #222;
+            line-height: 1.5;
+        }
+
+
+        /* ================================
+           HEADER
+           ================================ */
+
+        header {
+
+            border-bottom: 1px solid #ddd;
+
+            padding: 15px 5%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+
+            width: 90px;
+            height: 45px;
+
+            border: 1px solid #999;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            line-height: 1.1;
+        }
+
+
+        nav {
+
+            display: flex;
+
+            gap: 25px;
+        }
+
+        nav a {
+
+            text-decoration: none;
+
+            color: #222;
+
+            font-size: 14px;
+        }
+
+
+        /* ================================
+           PAGE TITLE
+           ================================ */
+
+        .title {
+
+            text-align: center;
+
+            padding: 30px 20px;
+        }
+
+        .title p {
+
+            color: #666;
+        }
+
+
+        /* ================================
+           CONTACT CONTENT
+           ================================ */
+
+        .contact-container {
+
+            max-width: 950px;
+
+            margin: auto;
+
+            padding: 0 20px 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 30px;
+        }
+
+
+        .contact-info {
+
+            padding: 10px;
+        }
+
+
+        .contact-info p {
+
+            margin: 18px 0;
+        }
+
+
+        /* Opening hours */
+
+        .visit {
+
+            background: #f4f4f4;
+
+            padding: 20px;
+
+            margin-top: 25px;
+        }
+
+
+        /* ================================
+           FORM
+           ================================ */
+
+        form {
+
+            border: 1px solid #ccc;
+
+            padding: 20px;
+        }
+
+
+        label {
+
+            display: block;
+
+            font-size: 13px;
+
+            margin: 10px 0 5px;
+        }
+
+
+        input,
+        textarea {
+
+            width: 100%;
+
+            padding: 10px;
+
+            border: 1px solid #aaa;
+
+            font-family: Arial, sans-serif;
+        }
+
+
+        textarea {
+
+            height: 130px;
+
+            resize: vertical;
+        }
+
+
+        button {
+
+            margin-top: 15px;
+
+            background: #222;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 25px;
+
+            cursor: pointer;
+        }
+
+
+        button:hover {
+
+            background: #444;
+        }
+
+
+        /* ================================
+           MAP
+           ================================ */
+
+        .map {
+
+            max-width: 950px;
+
+            height: 220px;
+
+            margin: 0 auto 40px;
+
+            background: #eee;
+
+            border: 1px solid #ccc;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #777;
+        }
+
+
+        /* ================================
+           FOOTER
+           ================================ */
+
+        footer {
+
+            background: #f5f5f5;
+
+            padding: 30px 8% 15px;
+        }
+
+        .footer-content {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        footer a {
+
+            color: #333;
+
+            text-decoration: none;
+
+            display: block;
+
+            margin: 5px 0;
+        }
+
+        .copyright {
+
+            text-align: center;
+
+            border-top: 1px solid #ddd;
+
+            margin-top: 20px;
+
+            padding-top: 15px;
+
+            font-size: 12px;
+        }
+
+
+        /* ================================
+           MOBILE
+           ================================ */
+
+        @media(max-width:700px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+            }
+
+            .contact-container,
+            .footer-content {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .map {
+
+                margin-left: 20px;
+
+                margin-right: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            IMMACULATE<br>
+            DAY CARE
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html">About Us</a>
+
+            <a href="programmes.html">Programmes</a>
+
+            <a href="gallery.html">Gallery</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- PAGE TITLE -->
+
+    <section class="title">
+
+        <h1>
+            Contact Us
+        </h1>
+
+        <p>
+            We'd love to hear from you.
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT INFORMATION + FORM -->
+
+    <section class="contact-container">
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-info">
+
+            <p>
+                📞
+                <strong>
+                    012 345 6789
+                </strong>
+            </p>
+
+
+            <p>
+                ✉️
+                info@immaculatedaycare.org
+            </p>
+
+
+            <p>
+                📍
+                123 Community St,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Your Town
+            </p>
+
+
+            <!-- Opening hours -->
+
+            <div class="visit">
+
+                <h3>
+                    Visit Us
+                </h3>
+
+                <br>
+
+                <p>
+                    Monday – Friday
+                    <br>
+                    07:30 AM – 05:00 PM
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT FORM -->
+
+        <form action="#" method="post">
+
+            <label for="name">
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label for="subject">
+                Subject
+            </label>
+
+            <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Subject"
+            >
+
+
+            <label for="message">
+                Your Message
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                placeholder="Write your message here..."
+            ></textarea>
+
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- MAP PLACEHOLDER -->
+
+    <div class="map">
+
+        <p>
+            📍 MAP PLACEHOLDER
+        </p>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div>
+
+                <div class="logo">
+                    IMMACULATE<br>
+                    DAY CARE
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programmes.html">Programmes</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Contact Info
+                </h3>
+
+                <p>
+                    Phone: 012 345 6789
+                </p>
+
+                <p>
+                    Email: info@immaculatedaycare.org
+                </p>
+
+                <p>
+                    Address: 123 Community St, Your Town
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Immaculate Day Care.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
