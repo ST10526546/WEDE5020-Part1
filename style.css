@@ -13,7 +13,7 @@
     --border: #d9e5e9;
     --shadow: 0 8px 24px rgba(36, 50, 58, 0.10);
     --radius: 16px;
-    --max-width: 1180px;
+    --max-width: 1180px; 
 }
 
 * {
