@@ -247,6 +247,10 @@ Website/
     ├── gallery9.jpg
     └── meals.jpg
 ```
+<img width="1220" height="895" alt="Screenshot 2026-09-25 152925" src="https://github.com/user-attachments/assets/b2999e5c-c286-4cc5-8839-9b82b49f3524" />
+<img width="1217" height="915" alt="Screenshot 2026-09-25 152859" src="https://github.com/user-attachments/assets/654d37df-828b-4ff5-acc8-96106860f305" />
+<img width="1212" height="852" alt="Screenshot 2026-09-25 152833" src="https://github.com/user-attachments/assets/3361d6ab-240b-46b0-b901-e47b741df459" />
+<img width="1208" height="960" alt="Screenshot 2026-09-25 152748" src="https://github.com/user-attachments/assets/c2e1ecc1-8794-48c8-9279-c9054cabb796" />
 
 
 
