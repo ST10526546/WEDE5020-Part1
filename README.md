@@ -1,249 +1,115 @@
-# WEDE5020-Part1
-Part 1
+# Immaculate Day Care — WEDE5020 Part 3 Final Website
 
-# Immaculate Day Care Website
+**Project:** Immaculate Day Care (fictional early-childhood/community NPO scenario)  
+**Module:** Web Development (Introduction), WEDE5020, 2026 PoE  
+**Production URL supplied by student:** https://immaculatedaycare.netlify.app/  
+**Submission phase:** Part 3 — JavaScript, dynamic content, SEO and validated forms  
+**Final source revision:** 30 October 2026  
 
 
-## Student Information
 
 
-- Student Name: Lesedi Mulaudzi
-- Student Number: ST10526546
-- Institution: Rosebank College
-- Course/Module: Web Development [WEDE5020]
-- Year: 2026
+## Overview, goals and users
 
+The website continues the Part 2 blue/green visual design. It explains childcare, early learning and meal-support programmes to Johannesburg-based parents/guardians and invites volunteer/sponsor enquiries. The organisation is **a student-project fiction**, not a verified operating centre. All community map areas and photographs are illustrative; no false street address, fees, staff contacts, programme places or enrolment promises are made.
 
-## Project Overview
+Objectives: make the content readable on mobile/tablet/desktop; help visitors locate services quickly; demonstrate accessible JavaScript interactions; validate both required forms; supply structured navigation and SEO metadata; and use proper Netlify form submissions for deployment.
 
+## Pages and website sitemap
 
-The Immaculate Day Care website is a five-page website designed to provide
-information about the organisation, its programmes and services, and how
-members of the community can get involved.
+| Source file | Canonical deployed URL | Purpose |
+|---|---|---|
+| `index.html` | `/` | Introduction, care/learning/meals overview and enquiry link |
+| `about.html` | `/about` | Project mission, vision and overview |
+| `programmes.html` | `/programmes` | Dynamic programme cards, category filters, search and sorting |
+| `gallery.html` | `/gallery` | 9-photo accessible modal lightbox |
+| `enquiry.html` | `/enquiry` | Volunteer, sponsor and childcare enquiry, FAQ accordion, Netlify AJAX submission |
+| `contact.html` | `/contact` | General contact form and interactive Leaflet location map |
+| `privacy.html` | `/privacy` | Disclosure of fictional status, data handling and external services |
 
+`SITEMAP.md` includes the website hierarchy and map coordinates. `sitemap.xml` lists all seven published **clean Netlify URLs**; `robots.txt` points to it. Original `.html` internal links work during local preview and are handled by Netlify's pretty URLs in production.
 
-The website aims to create a clear, simple and user-friendly online presence
-for Immaculate Day Care. It provides visitors with information about the
-organisation, its mission and vision, the services it provides to children,
-photographs of activities, and contact information.
+## JavaScript features and dynamic content
 
+- `js/main.js`: accessible `<dialog>` lightbox (image open, previous/next arrows, Escape, backdrop close, focus restoration); FAQ accordion behaviour; programme filters and sorting; Leaflet map selection; entry animations with reduced-motion support.
+- **Real asynchronous content loading:** on `programmes.html`, JavaScript fetches `data/programmes.json`, validates the data structure, builds programme cards with safe DOM APIs (`createElement`, `textContent`, `replaceChildren`), and lets visitors search, filter by category or sort A–Z/Z–A without a page reload. The original HTML cards are preserved as **no-JS/offline fallback** if JSON cannot load.
+- CSS transitions are used for hover and interaction feedback. Animation respects the visitor's reduced-motion preference.
+- `contact.html` loads **Leaflet 1.9.4** from its stable official CDN distribution, with a subresource integrity hash. The map uses OpenStreetMap tiles, visible contributor attribution, zoom controls and switching between two real map areas: Braamfontein (-26.192, 28.029) and Soweto (-26.248, 27.856). A direct OpenStreetMap link is provided as a fallback. **These are not Immaculate Day Care's actual premises**. An internet connection is needed for the map.
 
-The website consists of five interconnected pages:
-- Home
-- About Us
-- Programmes
-- Gallery
-- Contact
+## HTML forms, validation and security approach
 
+Both forms use HTML `action="/"`, `method="post"`, `data-netlify="true"`, a hidden `form-name` field and `netlify-honeypot="bot-field"` for Netlify Forms detection. `js/forms.js` uses HTML5 validity constraints plus JavaScript checks, displaying field-level error messages with `aria-describedby` and `aria-invalid`. Validation covers required fields, email format, South African phone numbers, character limits, future date on optional preferred start and acknowledgement.
 
-## Website Goals and Objectives
+**Enquiry form** (`enquiry.html`): name, email, phone, volunteer/sponsor/childcare type, preferred date, enquiry and acknowledgement. A successful validation displays context-sensitive guidance about enquiry cost, non-guaranteed availability and sponsorship arrangements. An online Netlify deployment submits this via AJAX `fetch()` as `application/x-www-form-urlencoded`.
 
+**Contact form** (`contact.html`): name, email, optional phone, category, subject, full message and acknowledgement. JavaScript compiles the visitor's message into a hidden `email_body` value and sends all fields to **Netlify Forms** via AJAX. This avoids the non-working `contact@example.org` mailto link from the earlier ZIP. The Netlify project owner can enable **form submission email notifications** in the dashboard to receive an email; a genuine notification recipient has *not* been supplied, so no email address is fabricated or hard-coded. A browser cannot prove an email was delivered. The HTTP success message says only that the endpoint accepted the form request.
 
-The main goals of the website are to:
+**Privacy/safety:** `privacy.html` explains that Netlify stores submitted form information on behalf of the project owner. Visitors are advised to use fictional test data and avoid personal details about children. The honeypot helps against spam but is not a complete security control. Client-side validation is **not** a server-side sanitiser. Netlify's hosting and form infrastructure still require administrator oversight, spam review and appropriate notification and privacy settings.
 
+**Double-clicking extracted HTML files (`file://`) and the map:** OpenStreetMap's public tile service requires a normal referring website. Opening `contact.html` directly from your extracted ZIP can result in 403 `Access blocked` tiles, even though your Netlify map works. For this reason, the website now uses OpenStreetMap's official hosted map *embed* when opened from `file://`. When deployed on Netlify, or previewed via a real local HTTP server, the full Leaflet map is used instead. The hosted embed still needs internet access. **Best local preview:** in VS Code, right-click `index.html` and choose **Open with Live Server**, or open a terminal in the extracted folder and run `python -m http.server 8000`, then visit `http://localhost:8000/`. Do not use the bare `file://` URL to assess AJAX forms or JSON fetch, as browsers restrict these cross-origin operations.
 
-- Provide clear information about Immaculate Day Care.
-- Explain the organisation's mission and vision.
-- Showcase the programmes and services offered.
-- Provide a gallery showing activities at the centre.
-- Make it easy for visitors to contact the organisation.
-- Encourage community members to support and get involved.
-- Create a simple and accessible website for visitors.
+**Local preview:** both forms validate but deliberately do **not** send data when opened locally. Actual submission needs a deployed Netlify project with Form Detection **enabled**, the updated files deployed, and a dashboard check that new submissions arrive. Never submit real children's details when testing.
 
+## SEO and optimisation checklist
 
-## Key Features and Functionality
+- **Content keywords:** Johannesburg childcare project, early childhood care, learning activities, feeding programme, volunteer enquiry, sponsorship. Relevant phrases are used in page headings and content, plus `meta name="keywords"` to align with the WEDE5020 marking rubric. No unsupported search-volume numbers or ranking promises are given.
+- **Title/description:** individual `<title>` and `<meta name="description">` on all seven pages; canonical URL and `og:*` social sharing metadata on each page.
+- **Page structure:** ordered heading hierarchy, internal links, meaningful image `alt` text, readable names, descriptive `<a>` links and responsive CSS.
+- **Image optimisation:** 13 descriptive, compressed JPEG files retained from the prior Part 3 update; non-critical images lazy-loaded. See `docs/IMAGE_RENAME_LOG.md`.
+- **XML sitemap / robots:** real student-supplied Netlify domain in `sitemap.xml`, `robots.txt`, and canonical tags. The two geographical markers belong in the planning sitemap (`SITEMAP.md`), not XML URL entries.
+- **Performance:** compact external CSS and JavaScript, optimised JPEGs, asynchronous JSON fetch, image loading hints, no JavaScript framework build step. Actual Lighthouse scores require testing on the final live deployment.
+- **Baseline hosting hardening:** `netlify.toml` supplies `X-Content-Type-Options`, frame restriction, Referrer-Policy and Permissions-Policy. HTTPS is provided by Netlify for its `netlify.app` domains. These settings do not guarantee security or replace Netlify spam/abuse and account-access controls.
+- **Local SEO:** Johannesburg is the general geographical context; the map areas are correctly labelled examples. **Do not register a fictitious address on Google Business Profile**.
+- **Off-page SEO:** no genuine backlinks, verified social accounts or promotions have been created for this fictional organisation. Sharing an actual student project, with a clear disclaimer and permission, is an optional future activity; off-page results cannot be manufactured by editing HTML.
 
-
-### Navigation
-All five pages are connected through a navigation menu, allowing users
-to easily move between different sections of the website.
-
-
-### Home Page
-- Welcome section
-- Introduction to Immaculate Day Care
-- Main image
-- Child Care, Education and Meals sections
-- Support Our Mission section
-
-
-### About Us
-- Organisation introduction
-- Image
-- Mission statement
-- Vision statement
-
-
-### Programmes
-- Child Care
-- Educational Activities
-- Feeding Programme
-- Images representing each programme
-
-
-### Gallery
-- Nine image placeholders
-- Responsive gallery layout
-- Hover effect on gallery images
-
-
-### Contact
-- Contact information
-- Operating hours
-- Contact form
-- Map placeholder
-- Links to other website pages
-
-
-### Responsive Design
-The website includes responsive CSS so that the layout can adapt to
-smaller screens such as tablets and mobile devices.
-
-
-
-
-
-Changelog
-Version 1.0 - Part 1
-Created the initial website structure.
-Added five interconnected HTML pages.
-Added navigation between all pages.
-Added the Home page and welcome section.
-Added About Us information.
-Added Programmes and Services.
-Added Gallery with image placeholders.
-Added Contact page with a contact form.
-Added responsive CSS for smaller screens.
-Added comments to the HTML and CSS code to improve readability.
-Added temporary image placeholders that can be replaced with actual
-organisation photographs.
-Future Changes
-Replace placeholder images with appropriate photographs.
-Add the organisation's actual contact details.
-Improve the visual design and branding.
-Add further functionality where required.
-Make improvements based on feedback and testing.
-
-
-
-
-REFERENCES
-
-Client Factory (2026). What a website actually costs in South Africa. Available at: https://clientfactory.co.za/journal/what-a-website-costs-in-south-africa/ (Accessed: 16 August 2026).
-
-Creative Commons (n.d.). Creative Commons licences. Available at: https://creativecommons.org/share-your-work/use-remix/cc-licenses/ (Accessed: 16 August 2026).
-
-Creative Commons (n.d.). Reusing CC-licensed content. Available at: https://creativecommons.org/reusing-cc-licensed-content/ (Accessed: 16 August 2026).
-
-Google (n.d.). Google Fonts. Available at: https://developers.google.com/fonts (Accessed: 16 August 2026).
-
-Intellium Inc. (2026). How much does a 5-page website cost in SA? Available at: https://intelliuminc.co.za/blogs/how-much-does-a-5-page-website-cost-in-sa/ (Accessed: 16 August 2026).
-
-Intellium Inc. (2026). Website design cost in South Africa: 2026 pricing guide. Available at: https://intelliuminc.co.za/blogs/website-design-cost-in-south-africa-the-2026-pricing-guide/ (Accessed: 16 August 2026).
-
-MDN Web Docs (2025). HTML: Creating the content. Available at: https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content (Accessed: 16 August 2026).
-
-MDN Web Docs (2025). Structuring documents. Available at: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Structuring_documents (Accessed: 16 August 2026).
-
-MDN Web Docs (2025). What will your website look like? Available at: https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like (Accessed: 16 August 2026).
-
-Netdevil (2026). How much does a website cost in South Africa? (2026 pricing). Available at: https://netdevil.co.za/blog/how-much-does-website-cost-south-africa (Accessed: 16 August 2026).
-
-Nostalgic Studio (2026). How long does it take to build a website? (2026 timeline). Available at: https://www.nostalgic-studio.co.za/blog/how-long-to-build-website-2026 (Accessed: 16 August 2026).
-
-Nostalgic Studio (2026). How much does a website cost in South Africa? (2026 guide). Available at: https://www.nostalgic-studio.co.za/blog/website-cost-south-africa-2026 (Accessed: 16 August 2026).
-
-Openverse (n.d.). About Openverse. Available at: https://openverse.org/about (Accessed: 16 August 2026).
-
-Part 2 Of POE : 
-# Immaculate Day Care Website – Part 2
-
-## Project Overview
-Immaculate Day Care is a fictional community-based non-profit organisation created for the WEDE5020 website project. The website provides information about childcare, education, meals, programmes, the organisation's mission and ways to make contact.
-
-Part 2 focuses on CSS styling and responsive design. The existing Part 1 HTML pages have been retained and an external stylesheet has been introduced for the complete website.
-
-## Pages
-- `index.html` – Home
-- `about.html` – About Us
-- `programmes.html` – Programmes & Services
-- `gallery.html` – Gallery
-- `contact.html` – Contact Us
-
-## Part 2 CSS Implementation
-The website now uses one shared external stylesheet:
-
-`css/style.css`
-
-The stylesheet provides:
-
-- A consistent colour palette based on the Part 1 proposal: light blue, soft green, white and a small amount of warm yellow.
-- Consistent typography using Arial with a clear heading hierarchy.
-- A CSS reset using the universal selector and `box-sizing`.
-- Reusable CSS custom properties for colours, spacing-related values, borders, shadows and layout width.
-- Flexbox for the header and navigation.
-- CSS Grid for the hero section, services, programmes, gallery, contact area and footer.
-- Consistent borders, rounded corners, spacing and shadows.
-- `:hover` and `:focus-visible` pseudo-classes for interactive elements.
-- Responsive breakpoints at 900px and 600px.
-- Relative sizing using `rem`, percentages, `min()`, `clamp()` and viewport-related values.
-- Responsive images using `max-width: 100%`, `aspect-ratio` and `object-fit`.
-- Responsive navigation that wraps and adjusts for smaller screens.
-- Mobile layouts that change multi-column sections into single-column layouts.
-
-
-
-## Changelog
-
-### Part 2 – CSS and Responsive Design
-- Removed duplicated inline `<style>` sections from all five HTML pages.
-- Created a single shared external stylesheet at `css/style.css`.
-- Linked all five HTML pages to the external stylesheet.
-- Added a consistent light-blue, soft-green, white and warm-yellow visual system based on the Part 1 design proposal.
-- Added consistent typography, spacing, borders, shadows and rounded components.
-- Added responsive Flexbox and CSS Grid layouts.
-- Added tablet and mobile media queries.
-- Added responsive navigation wrapping for smaller screens.
-- Added responsive image sizing and cropping using `aspect-ratio` and `object-fit`.
-- Added `:hover` and `:focus-visible` states for navigation links and buttons.
-- Added `aria-current="page"` to the navigation link representing the current page.
-- Checked internal HTML navigation links; all five pages link to existing local page files.
-
-## Responsive Testing Evidence
-<img width="1220" height="895" alt="Screenshot 2026-09-25 152925" src="https://github.com/user-attachments/assets/b2999e5c-c286-4cc5-8839-9b82b49f3524" />
-<img width="1217" height="915" alt="Screenshot 2026-09-25 152859" src="https://github.com/user-attachments/assets/654d37df-828b-4ff5-acc8-96106860f305" />
-<img width="1212" height="852" alt="Screenshot 2026-09-25 152833" src="https://github.com/user-attachments/assets/3361d6ab-240b-46b0-b901-e47b741df459" />
-<img width="1208" height="960" alt="Screenshot 2026-09-25 152748" src="https://github.com/user-attachments/assets/c2e1ecc1-8794-48c8-9279-c9054cabb796" />
-
-## File Structure
+## Folder structure
 
 ```text
-Website/
-├── index.html
-├── about.html
-├── programmes.html
-├── gallery.html
-├── contact.html
-├── README.md
-├── css/
-│   └── style.css
-└── images/
-    ├── child-care.jpg
-    ├── daycare-main.jpg
-    ├── education.jpg
-    ├── gallery1.jpg
-    ├── gallery2.jpg
-    ├── gallery3.jpg
-    ├── gallery4.jpg
-    ├── gallery5.jpg
-    ├── gallery6.jpg
-    ├── gallery7.jpg
-    ├── gallery8.jpg
-    ├── gallery9.jpg
-    └── meals.jpg
+index.html, about.html, programmes.html, gallery.html, enquiry.html, contact.html, privacy.html
+css/style.css
+js/main.js, js/forms.js
+data/programmes.json
+images/*.jpg (13 descriptive photo files)
+robots.txt, sitemap.xml, netlify.toml
+SITEMAP.md, CHANGELOG.md, README.md
+docs/IMAGE_RENAME_LOG.md, docs/README-Part2-Archive.md,
+docs/TEST_REPORT.md, docs/AI_DISCLOSURE_TEMPLATE.md
 ```
 
+## Deploy to the existing Netlify site
+
+1. Open the [Netlify dashboard](https://app.netlify.com/) and select the **existing** project serving `immaculatedaycare.netlify.app` (do **not** create a new site, otherwise the domain will change).
+2. If the site is manually deployed, drag the **unzipped contents of this directory** (including `index.html`, `netlify.toml`, `data/`, `css/`, `js/`, `images/`) into the site's **Deploys** upload area. The final Netlify-deploy ZIP supplied alongside this package has `index.html` at the ZIP root.
+3. If the site uses Git, commit and push these contents to the connected repository at the configured publish directory. Confirm the Netlify build setting points at the folder containing `index.html`.
+4. Enable **Forms → Form detection** in the project's Netlify settings if disabled; **redeploy after enabling**. You should see two form definitions in the Forms dashboard: `enquiry` and `contact`.
+5. In the Netlify Forms dashboard, set an email notification recipient **only if you have a real, authorised email address**, and test with fictional details. Without this setting, submissions may be stored in the Forms inbox but not sent as email notifications.
+6. Open `https://immaculatedaycare.netlify.app/sitemap.xml` and `/robots.txt` after redeploy; check all seven clean page URLs and view both forms, both map locations, and the gallery. Verify `/privacy` is accessible.
+7. In developer tools, check failed requests, console errors and phone/tablet layout. Review Netlify Forms submissions and spam tab. Collect authentic browser screenshots as assessment evidence.
+8. Push meaningful Git commits to the **course-provided private GitHub repository** and submit your existing site URL and the repository link via the LMS. The ZIP alone is not a GitHub submission.
 
 
 
+## Testing record and remaining checks
 
+`docs/TEST_REPORT.md` details syntax, content and link/image validation. A headless browser smoke test was attempted but local navigation was blocked by the browser execution environment (`ERR_BLOCKED_BY_ADMINISTRATOR`), so **browser UI testing and live Netlify form delivery are not claimed**. Static checks do not substitute for actual interactive-device tests. Before assessment, capture screenshots of your own deployed final site at desktop/tablet/mobile widths and test form error handling and successful test submissions.
+
+## Source references (Harvard style)
+
+- Google Search Central, n.d. *Build and submit a sitemap*. [Online] Available at: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap [Accessed 30 October 2026].
+- Leaflet, 2023. *Download Leaflet: version 1.9.4*. [Online] Available at: https://leafletjs.com/download.html [Accessed 30 October 2026].
+- Leaflet, n.d. *Quick Start Guide*. [Online] Available at: https://leafletjs.com/examples/quick-start/ [Accessed 30 October 2026].
+- MDN Web Docs, n.d. *Client-side form validation*. [Online] Available at: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation [Accessed 30 October 2026].
+- Netlify, n.d. *Forms setup*. [Online] Available at: https://docs.netlify.com/manage/forms/setup/ [Accessed 30 October 2026].
+- OpenStreetMap Foundation, n.d. *Tile Usage Policy*. [Online] Available at: https://operations.osmfoundation.org/policies/tiles/ [Accessed 30 October 2026].
+- OpenStreetMap contributors, n.d. *OpenStreetMap*. [Online] Available at: https://www.openstreetmap.org/ [Accessed 30 October 2026].
+
+# Pictures of desktop, tablet and mobile layouts, plus the gallery lightbox, interactive map, programme search and successful form submissions.
+![mobile picture](image.png)
+![Tablet](image-1.png)
+![Desktop](image-2.png)
+![gallery lightbox](image-3.png)
+![Map](image-4.png)
+![Successful form submissions](image-5.png)
+![successful form submissions](image-6.png)
+![programme search](image-7.png)
+![sucessful form submissions](image-8.png)
